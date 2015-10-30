@@ -1,0 +1,87 @@
+# SpotHero Coding Challenge
+
+Create a program that given a JSON file of rates can compute a price for a specified datetime range.
+
+## Example 
+
+### Rates JSON
+```python
+{
+  "rates": [
+    {
+      "days": "mon,tues,wed,thurs,fri",
+      "times": "0600-1800",
+      "price": 1500
+    },
+    {
+      "days": "sat,sun",
+      "times": "0600-2000",
+      "price": 2000
+    }
+  ]
+}
+```
+*days*: A comma separated string of applicable days for a rate
+
+*times*: Applicable 24 hour times in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) applicable for a rate
+
+*price*: The rate price in pennies
+
+### Results
+Datetime ranges should be specified in [isoformat](https://en.wikipedia.org/wiki/ISO_8601)
+
+A rate must completey encapsulate a datetime range for it to be available. 
+
+Rates will never overlap.
+
+```2015-07-01T07:00:00Z``` to ```2015-07-01T12:00:00Z``` should yield 1500
+
+```2015-07-04T07:00:00Z``` to ```2015-07-04T12:00:00Z``` should yield 2000
+
+```2015-07-04T07:00:00Z``` to ```2015-07-04T20:00:00Z``` should yield unavailable
+
+## Requirements
+* Given a rates.json file of rates and a datetime range specified in isoformat, calculate a given price. If no price is available simply return unavailable.
+* Include tests
+* Use a language of your choice
+
+## Solution
+* Write a single code file for the application. Other files may be included as needed.
+* Name the solution folder “{last}_{first}_spothero_rates”
+* The application call should be able to handle start and end datetime arguments
+  (e.g. my_application.ext 2015-07-04T07:00:00Z 2015-07-04T20:00:00Z)
+* Add any needed instructions
+* Email your solution to [chhay@spothero.com](mailto:chhay@spothero.com)
+
+## Sample JSON for testing
+```python
+{
+    "rates": [
+        {
+            "days": "mon,tues,thurs",
+            "times": "0900-2100",
+            "price": 1500
+        },
+        {
+            "days": "fri,sat,sun",
+            "times": "0900-2100",
+            "price": 2000
+        },
+        {
+            "days": "wed",
+            "times": "0600-1800",
+            "price": 1750
+        },
+        {
+            "days": "mon,wed,sat",
+            "times": "0100-0500",
+            "price": 1000
+        },
+        {
+            "days": "sun,tues",
+            "times": "0100-0700",
+            "price": 925
+        }
+    ]
+}
+```
