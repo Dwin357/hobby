@@ -9,9 +9,9 @@ import java.util.Scanner;
  * Prompt
  * You have been asked to write a planning program for an airline.
  * this program needs to:
- * When provided with the file, your program needs to read in a directed graph of airliner fuel usage
+ * When provided with .txt file, your program needs to read in a directed graph of airliner fuel usage
  * When provided with a series of airports (ie "A-B-C") provide the total fuel usage for the trip, or "NO SUCH TRIP" if it is not possible
- * When provided with two airports (ie "A", "B") provide the fuel usage for the most efficient path between them, or "NO.."
+ * When provided with two airports (ie "A", "B") provide the fuel usage for the most efficient path between them, or "NO SUCH TRIP"
  * When provided with two airports (ie "A", "B") provide the num of layover it takes to connect them by the most direct path
  * When provided with one airport (ie "C") provide the fuel usage for the most efficient loop
  * When provided with one airport (ie "C") provide the num of layovers it takes make a loop by the most direct path
@@ -21,14 +21,15 @@ import java.util.Scanner;
  *      
  *  Input
  *  An example of file text is: "Graph: AB9, CD3, BC8..." 
- *  where the first letter is the departure airport, the second letter is the arival airport, 
- *  and the number is how many gallons of fuel is needed for the flight (in hundreds of gallons)
+ *  where the first letter is the departure airport, 
+ *  the second letter is the arival airport, and
+ *  the number is how many gallons of fuel is needed for the flight (in hundreds of gallons)
  *  
  *  Importantly
  *  -the name of an airport will always begin with a capital letter
  *  -due to travel patterns, a flight from A -> B does not imply a flight from B -> A
  *  -due to wind patterns, a flight from A -> B might use a different amount of fuel than B -> A
- *  -every flight from A -> B will need to be loaded with the same amount of fuel (all edges have a single weight)
+ *  -every flight from A -> B will use the same amount of fuel
  * 
  * 
  */
@@ -53,60 +54,9 @@ public class FlightPlanner
     
 }
 
-class Airport
-/**
- * The root of a linked list which will keep track of the connections for each airport
- */
-{
-    private String name;
-    private Connection connections;
-    
-    public Airport(String _name){
-        name = _name;
-        connections = null;
-    }
-    
-    public void setConnections(Connection _connection){
-        connections = _connection;
-    }
-    
-    public Connection getConnections(){
-        return connections;
-    }
-}
 
-class Connection
-/**
- * The node of a linked list which will keep track of the connections for each airport
- */
-{
-    private String name;
-    private int distance;
-    private Connection nextConnection;
-    
-    public Connection(String _name, int _distance){
-        name = _name;
-        distance = _distance;
-    }
-    
-    public String name(){
-        return name;
-    }
-    
-    public int distance(){
-        return distance;
-    }
-    
-    public void setNext(Connection _connection){
-        nextConnection = _connection;
-    }
-    
-    public Connection next(){
-        return nextConnection;
-    }
-    
-    
-}
+
+
 
 class FloydWarshallConnection
 {
@@ -118,7 +68,7 @@ class FloydWarshallConnection
 
 
 ////////////////////////////////////////////////////////////////////////////////////////  example   ///////////////////////////////////////////////////////
-/*
+/**
  * import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -145,140 +95,7 @@ class Connection {
      }
  }
  
- class FloydWarshall {
-    char[] nodeName;
-    int [][] pathWeight;
-    int infinite = 9999;
-           
-    FloydWarshall(ArrayList<Station> trainTable){
-        // this is basically making a look up table
-        setNodeName(trainTable);
-        setPathWeight(trainTable);
-        optimizeConnections();
-        
-    }
-    
-    public int shortestPath(char origin, char destination){
-        return pathWeight[getIndexOf(origin)][getIndexOf(destination)];
-    }
-    
-    public int shortestLoop(char location){
-        // this works off the idea that, after all other paths are optimized the risk of infinite loops is no longer present
-        // so the most efficient loop path may be devised by reassigning the center line from 0 to infinite and reoptimizing
-        resetOriginToInfinite();
-        return pathWeight[getIndexOf(location)][getIndexOf(location)];
-    }
-    
-    public int altShortestLoop(char location){
-        // this works by assuming that the most efficient loop from a given point will be to some other loop and directly back
-        // therefore, given a graph of the most efficient point to point paths, this checks the distance to and from each other point
-        // (with a special if statement to exclude cking itselg) and returns the distance of the shortest round trip
-        int rtn = infinite;
-        int loc = getIndexOf(location);
-        
-        for (int i = 0; i < nodeName.length; i++){
-            if(loc != i){
-                if(rtn > pathWeight[loc][i] + pathWeight[i][loc]){
-                    rtn = pathWeight[loc][i] + pathWeight[i][loc];
-                }
-            }
-        }
-        return rtn;
-    }
-    
-    
-    
-    
-    private void resetOriginToInfinite(){
-        for(int i = 0 ; i < nodeName.length; i++){
-            pathWeight[i][i] = infinite;
-            optimizeConnections();
-        }
-    }
-    
-    private void setNodeName (ArrayList<Station> trainTable){
-        nodeName = new char [trainTable.size()];
-        int i = 0;        
-        for (Station station : trainTable){
-            nodeName[i] = station.name;
-            i = i+1;
-        }
-    }
-    
-    private void setPathWeight(ArrayList<Station> trainTable){
-        pathWeight = new int[nodeName.length][nodeName.length];
-        
-        for(Station origin : trainTable){
-            int i = getIndexOf(origin);
-            
-            for(int j = 0; j < nodeName.length; j++){
-              char destination = nodeName[j];
-                
-              if(i == j){
-                  pathWeight[i][j] = 0;
-                } else if (hasConnection(origin, destination)){
-                    pathWeight[i][j] = connectionWeight(origin,destination);
-                } else {
-                    pathWeight[i][j] = infinite;
-                }
-             }            
-        }
-    }
-    
-    private void optimizeConnections(){
-        // this ticks through the stations
-        for(int i =0; i < nodeName.length; i++){
-            
-            // this ticks through the connection for each station
-            for (int j = 0; j < nodeName.length; j++){
-                
-                // this needs to ck for alternate paths, and substitute if the alternate is more efficient
-                for (int k = 0; k < nodeName.length; k++){
-                    if(pathWeight[i][j] > pathWeight[i][k] + pathWeight[k][j]){
-                        pathWeight[i][j] = pathWeight[i][k] + pathWeight[k][j];
-                    }
-                }
-            }
-        }
-    }
-    
-    private int connectionWeight(Station origin, char destination){
-        for(Connection con = origin.connectionList; con != null; con=con.next){
-            if(con.stationName == destination){
-                return con.distance;
-            }
-        }
-        return -1;
-    }
-    
-    private boolean hasConnection(Station origin, char destination){
-        for(Connection con = origin.connectionList; con != null; con=con.next){
-            if(con.stationName == destination){
-                return true;
-            }
-        }
-        return false;
-    }
-          
-      private int getIndexOf(char station){
-          for(int i = 0; i < nodeName.length; i++){
-              if(station == nodeName[i]){
-                  return i;
-                }
-            }
-            return -1;
-        }
-        
-        private int getIndexOf(String station){
-            char loc = station.charAt(0);
-            return getIndexOf(loc);
-        }
-        
-        private int getIndexOf(Station station){
-            char loc = station.name;
-            return getIndexOf(loc);
-        }
-    }
+
     
  public class FloydWTrainStudy {
        ArrayList<Station> trainTable = new ArrayList<Station>();
@@ -598,10 +415,5 @@ class Connection {
         
     }
   }
- * 
- * 
- * 
- * 
- * 
- * */
+
  */
