@@ -17,7 +17,7 @@ public class FloydWarshallOptimizedConnections
     }
     
     public int mostEfficientRoundTrip(String origin){
-        return -1;
+        return mostEfficientLinearFlight(origin, origin);
     }
     
     private void setNodeNames(ArrayList<Airport> flightRoutes){

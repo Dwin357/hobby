@@ -1,4 +1,3 @@
-
 /**
  * Write a description of class Test here.
  * 
@@ -17,9 +16,10 @@ public class Test
 
         String test = "123";
         int[] ary = {1,2,3};
+        Integer var;
         //System.out.println(Integer.parseInt(test.substring(0, 1)));
         //tObj.theMan();
-        System.out.println(ary.length);
+        //System.out.println(var != null);
     }
 }
 
