@@ -1,0 +1,10 @@
+<%= render partial: "sharedPartials/tab_text", locals: {text: "Posts"} %>
+
+<div class='container'>
+	<%= render partial: "sharedPartials/object_errors", locals: {brokenObject: @post} %>
+	<%= form_for @post do |form| %>
+		<%= render partial: "post_form_fields", locals: {f: form} %>
+		<%= form.submit "create" %>
+	<% end %>
+</div>
+

@@ -1,0 +1,9 @@
+<%= render partial: "sharedPartials/tab_text", locals: {text: "Gallary"} %>
+
+<div class='container'>
+  <%= render partial: "sharedPartials/object_errors", locals: {brokenObject: @painting} %>
+  <%= form_for @painting do |form| %>
+    <%= render partial: "painting_form_fields", locals: {f: form} %>
+    <%= form.submit "add" %>
+  <% end %>
+</div>

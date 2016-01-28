@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=args
+comment0.target=void\ main(java.lang.String[])
+comment1.params=i\ n\ array\ f
+comment1.target=void\ addDice(int,\ int,\ int[],\ java.util.HashMap)
+comment2.params=array
+comment2.target=int\ sumArray(int[])
+numComments=3

@@ -1,0 +1,9 @@
+<li class='menu-list-item'>
+  <%= link_to "gallery", paintings_path, :class => "menu-btn" %>
+</li>
+
+<% if logged_in? %>
+  <li class='menu-list-item'>
+    <%= link_to "new painting", new_painting_path, :class => "menu-btn" %>
+  </li>
+<% end %>

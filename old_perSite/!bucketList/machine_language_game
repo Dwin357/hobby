@@ -1,0 +1,53 @@
+I imagine a game platform which greatly simplifies interpersonal interactions, and which provides rich data into how people interact / communicate with each other as well as how people interact / communicate with machines.
+
+I envision user-interface to be from a first person perspective, with a "manipulation/interface-object" (sonic screwdriver?) visible in the lower part of the screen as though it were being held by the user.  along the bottom of the screen would be different avaliable resources (blocks of different shapes & colors) and along the left side of the screen would be objectives (specific arrangements of blocks which award points to the user when the game board matches or contains the arrangement)
+
+I imagine "play" as users alternatly placing (lego)blocks in a communal build area, where each one is working to make the communal structure look like their objectives.
+
+A users objectives would be sets that would have inherient continuity.  So if a persons objective set is to build a pyramid, they might get points after completing the first level, more points after completing the second level, and still more points after the pyramid is complete.
+
+After the game, the user would be asked to rate if the other player's participation was "helpful", "harmful", or "neutral" to them (i imagine this done as a spinner so the user can denote gradient between the options) as well as a slider which indicates the level of intensity / impact the other player's actions had on them.
+
+Additionally, after the game the user would be asked to describe what the other person's objective was and to rate their own actions from the other player's PoV.
+
+Finally, the user would be asked if they think the other player was a person or a machine
+
+===============
+
+assumptions
+*communication / conversation is a colaboratively constructive process, with participants both contributing to and reading from a shared construct (which is externalized and made explicite by the common building space & blocks).
+
+*communication, being an effortfull activity, is undertaken with some purpose / objective by the individual (which is simulated by the game objectives and points rewards)
+
+================
+
+expectations
+**the higher a person rates "intensity of impact", the more definitvly they will identify the action as harmful or helpful (confirming that the intensity judgement comes from a perspective that has an inherient value-basis).  Inverse also true
+
+**players will better recognize the objectives of others if they are similar to their own (and/or have seen them before)
+
+**players are more likely to identify as "human" others who's objectives they can recognize
+
+**players are more likely to identify as "human" others who make mistakes while pursuing recognized objectives
+
+
+####################################################
+
+variations on the basic model could be
+-play with user defined (ie unspecified) objectives :: essentially a full on turing test
+
+-ability to remove a block rather than place one as a turn action :: essentially giving user's the ability to challenge one another, rather than the "yes and..." default 
+
+-having as objectives the prevention of patterns / state :: essentially introducing in patterns of deflection and avoidance into the "conversation"
+
+-have the intensity and polarity tools as part of the user's HUD display so they can be modified throughout the game :: more granular data, but not sure if people would fully engage with it
+
+-as above, but have the meters gradually creeps more positive unless / until the user adjusts them down.
+
+The polarity compass labels
+1100 :: they are the best
+0100 :: they are ok
+0300 :: meh
+0500 :: if I have to
+0700 :: they are the worst
+0900 :: its complicated

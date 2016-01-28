@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=
+comment0.target=DataStructure()
+comment0.text=\n\ \ \ \ public\ DataStructure(String[]\ edgeList)\ {\n\ \ \ \ \ \ \ \ \n\ \ \ \ \ \ \ \ for(int\ i\=0;\ i\ <\ edgeList.length;\ i++){\n\ \ \ \ \ \ \ \ \ \ \ \ String\ input\ \=\ \n\ \ \ \ \ \ \ \ \ \ \ \ \n\ \ \ \ \ \ \ \ }\n\ \ \ \ \ \ \ \ \n\ \ \ \ \ \ \ \ \n\ \ \ \ }\n
+numComments=1

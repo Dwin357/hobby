@@ -1,0 +1,31 @@
+12/30/15::0940 - outstanding issues
+
+getting distracted, need to identify key issues and work them individually.
+  - getting the image gallary working
+  - getting the testing suit working
+
+  images first
+=======================================
+
+So, an idea for code is to make a basic post framework as an initial skeleton
+
+Bigger picture, I imagine a number of features:
+
+ 		- a basic blog posting set up (initially not commentable)
+ X - done, needs a bit more test coverage
+
+ - set up basic html skeleton & scss style
+
+ - a sign in requirement to author / edit posts
+ - a yearbook style profile / bio section
+ - a chatroom feature running on top of the twitter api
+
+
+ =======================================
+
+ so what am I imagining right now?
+
+ splash page is the background color with the gray border box and a picture in the middle
+
+ after that it enters "areas"
+ 	- one area has a forest type background picture with interactive elements 

@@ -1,0 +1,7 @@
+<%= render partial: "sharedPartials/tab_text", locals: {text: "Gallary"} %>
+
+<div class='container'>
+  <%= image_tag @painting.image_url(:portrait).to_s if @painting.image_url(:portrait).to_s%>
+  <p><%= @painting.title %> by <%=@painting.artist_name%></p>
+
+</div>

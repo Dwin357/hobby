@@ -1,0 +1,9 @@
+<li class='menu-list-item'>
+  <%= link_to "study", posts_path, :class => "menu-btn" %>
+</li>
+
+<% if logged_in? %>
+  <li class='menu-list-item'>
+    <%= link_to "new post", new_post_path, :class => "menu-btn" %>
+  </li>
+<% end %>

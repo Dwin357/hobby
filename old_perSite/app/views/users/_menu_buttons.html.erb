@@ -1,0 +1,5 @@
+<% if !logged_in? %>
+  <li class='menu-list-item'>
+    <%= link_to "new user", new_user_path, :class => "menu-btn" %>
+  </li>
+<% end %>

@@ -1,0 +1,129 @@
+$theme-color: #004c4d;
+$accent-color: #a300cc;
+$contrast-color: #ffb3d9;
+$fairy-tale-color: #005580;
+$off-white-page: #ffffb3;
+$dark-leather-book: #1a0d00;
+$book-ink-color: #b2b300;
+
+@font-face {
+    font-family: 'kramerregular';
+    src: url("./fonts/kramer/kramer-webfont.eot");
+    src: url("./fonts/kramer/kramer-webfont.eot?#iefix") format('embedded-opentype'),
+         url("./fonts/kramer/kramer-webfont.woff2") format('woff2'),
+         url("./fonts/kramer/kramer-webfont.woff") format('woff'),
+         url("./fonts/kramer/kramer-webfont.ttf") format('truetype'),
+         url("./fonts/kramer/kramer-webfont.svg#kramerregular") format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'plaingermanicaregular';
+    src: url('./fonts/plain_germanica/plain_germanica-webfont.eot');
+    src: url('./fonts/plain_germanica/plain_germanica-webfont.eot?#iefix') format('embedded-opentype'),
+         url('./fonts/plain_germanica/plain_germanica-webfont.woff2') format('woff2'),
+         url('./fonts/plain_germanica/plain_germanica-webfont.woff') format('woff'),
+         url('./fonts/plain_germanica/plain_germanica-webfont.ttf') format('truetype'),
+         url('./fonts/plain_germanica/plain_germanica-webfont.svg#plaingermanicaregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* ***************utility*************** */
+.container{
+  border-style: dotted;
+  border-width: 1px;
+  width: 60%;
+  margin: auto;
+  padding: 10px;
+}
+
+
+/* *********************layouts******************* */
+body { margin: 0; }
+
+#splash-page-layout {
+  background: $fairy-tale-color;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+#default-page-layout{}
+
+
+/* **********navigation************ */
+
+
+#menu-bar{
+}
+
+.side-bar{
+}
+
+#menu-list{
+  margin: right;
+  padding-right: 30px;
+} 
+
+.menu-list-item{
+  display: inline-block;
+  a { text-decoration: none; }
+}
+
+.menu-btn{
+  display: block;
+  width: 100px;
+  height: 20px;
+  background: $accent-color;
+  padding: 10px;
+  text-align: center;
+  border-radius: 2px;
+  color: $contrast-color;
+  font-weight: bold;
+}
+
+/* ***************section***************** */
+ 
+#splash-book-container{
+  background: $dark-leather-book;
+  width: 70%;
+  padding: 3em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5em;
+  margin-bottom: 5em;
+  border-radius: 5px;
+  .lead-character{
+    font-size: 200%;
+    font-family: kramerregular;
+  }
+  .book-item{
+    margin: 3em;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  p {
+     font-family: plaingermanicaregular;
+     color: $book-ink-color;
+  }  
+  a { text-decoration: none;  }
+  a:link { color: $book-ink-color; }
+  a:visited { color: $book-ink-color; }
+  a:hover { color: $book-ink-color; }
+  a:focus { color: $book-ink-color; }
+  a:active { color: $book-ink-color; }
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 25px;
+    max-width: 100%;
+    height: auto;
+  }
+}

@@ -1,0 +1,11 @@
+<%= render partial: "sharedPartials/tab_text", locals: {text: "Gallary"} %>
+
+<%= render partial: "sharedPartials/menu_bar"
+
+<div class='container'>
+  <%= render partial: "sharedPartials/object_errors", locals: {brokenObject: @painting} %>
+  <%= form_for @painting do |form| %>
+    <%= render partial: "painting_form_fields", locals: {f: form} %>
+    <%= form.submit "edit" %>
+  <% end %>
+</div>

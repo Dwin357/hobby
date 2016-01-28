@@ -1,0 +1,9 @@
+<% if logged_in? %>
+  <li class='menu-list-item'>
+    <%= link_to "logout", logout_path, method: :delete, :class => "menu-btn" %>
+  </li>
+<% else %>
+  <li class='menu-list-item'>
+    <%= link_to "login", login_path, :class => "menu-btn" %>
+  </li>
+<% end %>

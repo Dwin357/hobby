@@ -1,0 +1,21 @@
+<%= render partial: "sharedPartials/tab_text", locals: {text: "Log In"} %>
+
+<div class='container'>
+	<h3>You should sign in, yo</h3>
+
+  <%= render partial: "sharedPartials/error_box", locals: {errors: @errors} %>
+  <br>
+  <%= form_for :session, url: login_path do |f| %>
+    <div class='input-field'>
+      <%= f.label :username %>
+      <%= f.text_field :username %>
+    </div>
+    <div class='input-field'%>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+    <%= f.submit "Login" %>
+  <% end %>
+
+
+</div>

@@ -1,0 +1,11 @@
+<%= render partial: "sharedPartials/tab_text", locals: {text: "Posts"} %>
+
+<div class='container'>
+  <%= render partial: "sharedPartials/object_errors", 
+    locals: {brokenObject: @error_object} %>
+  <h3><%= @post.title %></h3>
+  <p>by <%=@post.author.username%></p>
+  <br>
+  <p> <%= @post.body %></p>
+
+</div>

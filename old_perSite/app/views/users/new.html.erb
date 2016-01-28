@@ -1,0 +1,11 @@
+<%= render partial: "sharedPartials/tab_text", locals: {text: "Sign Up"} %>
+
+<div class='container'>
+	<h1> Sign Up</h1>
+	<%= render partial: "sharedPartials/object_errors", locals: {brokenObject: @user} %>
+
+	<%= form_for @user do |form| %>
+		<%= render partial: "user_form_fields", locals: {f: form} %>
+		<div class="actions"><%= form.submit %></div>
+	<% end %>
+</div>
